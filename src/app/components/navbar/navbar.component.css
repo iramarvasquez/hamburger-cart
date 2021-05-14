@@ -1,13 +1,18 @@
-.barraNav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    background-color: #fab829ef;
-    color: rgb(241, 8, 8);
-    font-weight: 600;
-    box-shadow: 5px;
-  }
+.bg-info {
+    background:#fab829ef !important;
+}
+
+.navbar-brand, .nav-link {
+    color: red !important;
+    font-size: large;
+    font-weight: bolder;
+}
+
+@media only screen and (min-width: 600px) {
+    .navbar-toggler {
+        display: none !important;
+    }
+
+}
+
+
