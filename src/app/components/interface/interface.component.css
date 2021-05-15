@@ -1,0 +1,30 @@
+.urlBackgroundImage{
+    background-image:url('https://i.imgur.com/bNAs3DZ.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: center;
+}
+
+.hamburger {
+    width: 150%;
+
+}
+
+.content {
+    padding-top: 20%;
+}
+
+a {
+    margin-top: 10%;
+}
+
+
