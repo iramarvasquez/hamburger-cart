@@ -2,3 +2,94 @@
 
 {{ products | json }}
 <p>products works!</p>
+
+<a href="/carrito" class="btn btn-danger" role="button" aria-pressed="true">COMPRAR</a>
+
+<h2 class=""> Selecione os ingredientes </h2>
+
+<br><br>
+
+<h3 id="product-toppings-heading-NonMeat" class="PanelHeading"> Selecione os vegetais e queijos </h3>
+
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
+        <div class="card">
+            <input type="checkbox" id="item_0" name="item_0" value="0.5" onchange="UpdateCost()">
+            <label for="item_0"><img class="card-img-top" src="https://picsum.photos/id/1/150/100" /></label>
+            <div class="card-body">
+                <h5><b>Tomate</b> </h5>
+                <div class="d-flex flex-row my-2">
+                    <div class="text-muted">R$0,50/pick <select id="qty_0" class="weight" name="Weight|Tomate" onchange="UpdateCost()">
+                            <option value="1" selected="selected">
+                                Normal
+                            </option>
+                            <option value="2">
+                                Doble
+                            </option>
+                            <option value="3">
+                                Triple
+                            </option>
+                        </select></div>
+                </div>
+
+                <!-- <button class="btn w-100 rounded my-2">Add to cart</button> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
+        <div class="card">
+            <input type="checkbox" id="item_1" name="item_1" value="0.45" onchange="UpdateCost()">
+            <label for="item_1"><img class="card-img-top" src="https://picsum.photos/id/10/150/100" /></label>
+            <div class="card-body">
+                <h5><b>Cabola</b> </h5>
+                <div class="d-flex flex-row my-2">
+                    <div class="text-muted">R$0,50/pick <select id="qty_1" class="weight" name="Weight|Tomate" onchange="UpdateCost()">
+                            <option value="1" selected="selected">
+                                Normal
+                            </option>
+                            <option value="2">
+                                Doble
+                            </option>
+                            <option value="3">
+                                Triple
+                            </option>
+                        </select></div>
+                </div>
+
+                <!-- <button class="btn w-100 rounded my-2">Add to cart</button> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
+        <div class="card">
+            <input type="checkbox" id="item_2" name="item_2" value="0.5" onchange="UpdateCost()">
+            <label for="item_2"><img class="card-img-top" src="https://picsum.photos/id/100/150/100" /></label>
+            <div class="card-body">
+                <h5><b>Tomate</b> </h5>
+                <div class="d-flex flex-row my-2">
+                    <div class="text-muted">R$0,50/pick <select id="qty_2" class="weight" name="Weight|Tomate" onchange="UpdateCost()">
+                            <option value="1" selected="selected">
+                                Normal
+                            </option>
+                            <option value="2">
+                                Doble
+                            </option>
+                            <option value="3">
+                                Triple
+                            </option>
+                        </select></div>
+                </div>
+
+                <!-- <button class="btn w-100 rounded my-2">Add to cart</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 id="product-toppings-heading-Meat" class="productTopping"> Selecione a proteína </h3>
+
+<h3 id="sauce-heading" class="productTopping"> Seleccione o molho </h3>
+
+<input type="text" id="total" name="total" value="$ 0" readonly="readonly">
