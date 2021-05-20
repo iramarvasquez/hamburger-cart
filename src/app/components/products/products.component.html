@@ -10,16 +10,48 @@
 <br><br>
 
 <h3 id="NonMeat" class="PanelHeading"> Selecione os Vegetais e Queijos </h3>
-
+<form role="form" #hamburgerForm="ngForm"  (ngSubmit)="onSubmit(hamburgerForm)">
 <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
         <div class="card">
-            <input type="checkbox" id="item_0" name="item_0" value="0.5" onchange="UpdateCost()">
+            <input type="checkbox" id="item_0"  name="tomate.selected" [(ngModel)]="order.tomate.selected" (click)="updateCost()">
             <label for="item_0"><img class="card-img-top" src="https://picsum.photos/id/1/150/100" /></label>
             <div class="card-body">
                 <h5><b>Tomate</b> </h5>
                 <div class="d-flex flex-row my-2">
-                    <div class="text-muted">R$0,50/pick <select id="qty_0" class="weight" name="Weight|Tomate" onchange="UpdateCost()">
+
+
+                    <!-- onchange="UpdateCost()" onchange="UpdateCost()" -->
+                    <div class="text-muted">R${{ price.tomate }}/pick 
+                        <select id="qty_0" class="weight" name="tomate.quantity" [(ngModel)]="order.tomate.quantity" (click)="updateCost()">
+                            <option value="1" selected="selected">
+                                Normal
+                            </option>
+                            <option value="2">
+                                Doble
+                            </option>
+                            <option value="3">
+                                Triple
+                            </option>
+                        </select></div>
+                </div>
+
+                <!-- <button class="btn w-100 rounded my-2">Add to cart</button> -->
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
+        <div class="card">
+            <input type="checkbox" id="item_0"  name="cebola.selected" [(ngModel)]="order.cebola.selected" (click)="updateCost()">
+            <label for="item_0"><img class="card-img-top" src="https://picsum.photos/id/1/150/100" /></label>
+            <div class="card-body">
+                <h5><b>Tomate</b> </h5>
+                <div class="d-flex flex-row my-2">
+
+
+                    <!-- onchange="UpdateCost()" onchange="UpdateCost()" -->
+                    <div class="text-muted">R${{ price.tomate }}/pick 
+                        <select id="qty_0" class="weight" name="cebola.quantity" [(ngModel)]="order.cebola.quantity" (click)="updateCost()">
                             <option value="1" selected="selected">
                                 Normal
                             </option>
@@ -97,3 +129,9 @@
 <h3 id="Drink" class="productTopping"> Seleccione sua Bebida </h3>
 
 <input type="text" id="total" name="total" value="$ 0" readonly="readonly">
+
+    <div class="">                        
+        <button type="submit" class="btn btn-default btn-lg" >Enviar</button>
+    </div> 
+
+</form>
