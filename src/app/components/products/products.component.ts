@@ -36,27 +36,33 @@ export class ProductsComponent implements OnInit {
 
 
 
-  constructor(private productsService: ApiService) { }
+  constructor(private productsService:ApiService) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
 
-  public getProducts() {
-
-    this.productsService.getProducts()
-      .subscribe(
-        (data) => {
-          this.data = data;
-          console.log("Datsososjdnhijts", this.data);
-          this.products = this.data.products;
-          // this.successfully = true;         
-          console.log("Products", this.products);
-        },
-        (error) => {
-          console.log(error);
-        });
+  public async getProducts() {
+    const promise = await this.productsService.getProducts().toPromise();
+    this.data = promise;
+    console.log(this.data.products); 
   }
+
+  // public getProducts() {
+
+  //   this.productsService.getProducts()
+  //     .subscribe(
+  //       (data) => {
+  //         this.data = data;
+  //         console.log("Datsososjdnhijts", this.data);
+  //         this.products = this.data.products;
+  //         // this.successfully = true;         
+  //         console.log("Products", this.products);
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //       });
+  // }
 
   onSubmit(dataObj): void {
 
