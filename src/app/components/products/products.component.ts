@@ -19,8 +19,8 @@ export class ProductsComponent implements OnInit {
     alface: "0.52"
   }
   order: any  ={ 
-    tomate: {
-      selected: false,
+      tomate: {
+      selected: true,
       price: '',
       quantity: '1'
     },

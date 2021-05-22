@@ -9,6 +9,8 @@ import { InterfaceComponent } from './components/interface/interface.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -16,13 +18,14 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     ProductsComponent,
     InterfaceComponent,
-    CartComponent
+    CartComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
