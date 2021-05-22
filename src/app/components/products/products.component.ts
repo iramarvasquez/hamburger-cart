@@ -8,19 +8,19 @@ import { ApiService } from 'src/app/shared/services/api.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  data: any ={};
-  products: any ={};
+  data: any = {};
+  products: any = {};
   // tomate: any = {
   //   price : ''
   // };
   price: any = {
     tomate: "0.50",
-    cebola: "0.51",
-    alface: "0.52"
+    cebola: "0.50",
+    alface: "0.50"
   }
-  order: any  ={ 
-      tomate: {
-      selected: true,
+  order: any = {
+    tomate: {
+      selected: false,
       price: '',
       quantity: '1'
     },
@@ -29,7 +29,7 @@ export class ProductsComponent implements OnInit {
       price: '',
       quantity: '1'
     },
-    
+
   };
   valor_price: any;
   order2: any;
@@ -42,21 +42,27 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
-  public getProducts(){
-
-    this.productsService.getProducts()
-    .subscribe(   
-      (data)=>{
-        this.data = data;
-        console.log("Datsososjdnhijts", this.data);
-        this.products = this.data.tasks;
-        // this.successfully = true;         
-        console.log("Products", this.products);
-      },
-      (error)=>{ 
-        console.log(error);
-      });
+  public async getProducts() {
+    const promise = await this.productsService.getProducts().toPromise();
+    this.data = promise;
+    console.log(this.data.products); 
   }
+
+  // public getProducts() {
+
+  //   this.productsService.getProducts()
+  //     .subscribe(
+  //       (data) => {
+  //         this.data = data;
+  //         console.log("Datsososjdnhijts", this.data);
+  //         this.products = this.data.products;
+  //         // this.successfully = true;         
+  //         console.log("Products", this.products);
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //       });
+  // }
 
   onSubmit(dataObj): void {
 
@@ -65,32 +71,30 @@ export class ProductsComponent implements OnInit {
     console.log(this.order2);
   }
 
+  // Function for one ingredient
   updateCost() {
-   
-
-    var i=0;
+    var i = 0;
     const itemid = 'item_' + i;
     const elem = document.getElementById(itemid);
-   
-    if ( elem.id = "item_0"){
+
+    if (elem.id = "item_0") {
       this.valor_price = this.price.tomate;
     }
-    
-    console.log('1',this.valor_price);
-    console.log('2', this.order.tomate.quantity);
-    console.log('3', this.order.tomate.selected)
-    
+
+    console.log('Ingredient price:', this.valor_price);
+    console.log('Ingredient quantity', this.order.tomate.quantity);
+    console.log('Selected?', this.order.tomate.selected)
+
     if (this.order.tomate.selected) {
-           this.order.tomate.price = this.valor_price * this.order.tomate.quantity;
-           console.log( '4' ,this.order.tomate.price );
+      this.order.tomate.price = this.valor_price * this.order.tomate.quantity;
+      console.log('Ingredient Total Price', this.order.tomate.price);
     }
 
 
-    
     // if (this.order.tomateAct){
     //   this.price
     // }
-    
+
     // precio x cantida
 
     // var sum = 0;
