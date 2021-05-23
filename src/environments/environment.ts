@@ -7,6 +7,7 @@ const pathServer = 'http://localhost:8081/';
 export const environment = {
   production: false,
   url: {
+    products: pathServer + 'products/',
   }
 };
 
