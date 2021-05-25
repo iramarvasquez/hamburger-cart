@@ -14,6 +14,18 @@ export class ProductsComponent implements OnInit {
   //   price : ''
   // };
 
+  
+  product: any = {
+    id: "1",
+    checked: "true",
+    quantity: "1"
+  }
+  
+  quantity: any = {
+    tomate: "1",
+    cebola: "1"
+  }
+
   url: any = {
     tomate: "",
     cebola: "",
@@ -109,7 +121,6 @@ export class ProductsComponent implements OnInit {
       price: '',
       quantity: '1'
     },
-
     alface: {
       selected: false,
       price: '',
@@ -508,27 +519,49 @@ export class ProductsComponent implements OnInit {
 
     this.order2 = dataObj.form.value;
     console.log(this.order);
+
     console.log(this.order2);
   }
 
   // Function for one ingredient
   updateCost() {
-    var i = 0;
-    const itemid = 'item_' + i;
-    const elem = document.getElementById(itemid);
 
-    if (elem.id = "item_0") {
-      this.valor_price = this.price.tomate;
+    console.log('HEEEELP')
+
+    for (let i = 0; i < this.data.product.length; i++) {
+      if (this.data.product[i].name == 'Tomate') {
+
+        this.url.tomate = this.data.product[i].urlimg;
+        this.name.tomate = this.data.product[i].name;
+        this.price.tomate = this.data.product[i].price;
+        this.quantity.tomate = this.product.quantity;
+        console.log(this.url.tomate)
+        console.log(this.name.tomate)
+        console.log(this.price.tomate);
+        console.log(this.quantity.tomate);
+        //console.log(this.data.product[i].name);]
+      }
     }
 
-    console.log('Ingredient price:', this.valor_price);
-    console.log('Ingredient quantity', this.order.tomate.quantity);
-    console.log('Selected?', this.order.tomate.selected)
 
-    if (this.order.tomate.selected) {
-      this.order.tomate.price = this.valor_price * this.order.tomate.quantity;
-      console.log('Ingredient Total Price', this.order.tomate.price);
-    }
+
+
+    // var i = 0;
+    // const itemid = 'item_' + i;
+    // const elem = document.getElementById(itemid);
+
+    // if (elem.id = "item_0") {
+    //   this.valor_price = this.price.tomate;
+    // }
+
+    // console.log('Ingredient price:', this.valor_price);
+    // console.log('Ingredient quantity', this.order.tomate.quantity);
+    // console.log('Selected?', this.order.tomate.selected)
+
+    // if (this.order.tomate.selected) {
+    //   this.order.tomate.price = this.valor_price * this.order.tomate.quantity;
+    //   console.log('Ingredient Total Price', this.order.tomate.price);
+    // }
 
 
     // if (this.order.tomateAct){

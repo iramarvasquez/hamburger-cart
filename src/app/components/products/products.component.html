@@ -4,20 +4,24 @@
 
 <br><br>
 
-<form role="form" #hamburgerForm="ngForm" (ngSubmit)="onSubmit(hamburgerForm)">
+<form role="form" #hamburgerForm="ngForm" (ngSubmit)="onSubmit(hamburgerForm)"> 
 
     <div class="row">
 
         <h3 id="NonMeat" class="PanelHeading"> Pão </h3>
 
-        <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0">
-            <div class="card">
-                <!-- <input type="checkbox" id="item_24"  name="pao.selected" [(ngModel)]="order.pao.selected" (change)="updateCost()" (click)="order.pao.selected = false"> -->
-                <img class="card-img-top" src="{{ url.pao }}" />
-                <div class="card-body">
-                    <h5><b> {{ name.pao }} </b> </h5>
-                    <div class="d-flex flex-row my-2">
-                        <div class="text-muted">R$ {{ price.pao }} /pick
+        <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1" *ngFor="let product of data.product">
+            <div *ngIf="product.id == 25">
+
+                <div class="col-lg-4 col-md-6 col-sm-10  offset-md-0 offset-sm-1">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ product.urlimg }}" />
+                        <div class="card-body">
+                            <h5><b> {{ product.name }} </b> </h5>
+                            <div class="d-flex flex-row my-2">
+                                <div class="text-muted">R$ {{ product.price }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -26,17 +30,21 @@
 
         <h3 id="NonMeat" class="PanelHeading"> Selecione os Vegetais e Queijos </h3>
 
-        <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-0" *ngFor="let product of data.product">
+        <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1" *ngFor="let product of data.product">
             <div *ngIf="product.id != 25">
                 <div *ngIf="product.nonmeat == true">
                     <div class="card">
-                        <input type="checkbox" id="{{ product.id }}" name="{{ product.name }}">
+                        <!-- <input type="checkbox" id="{{ product.id }}" name="{{ product.name }}"  (change)="updateCost()"> -->
+                        <input type="checkbox" name="{{ product.name }}" [id]="product.id" [(ngModel)]="product.selected" (change)="updateCost()">
+                        {{product.selected}}
+                        {{product.id}}
                         <label for="{{ product.id }}"><img class="card-img-top" src="{{ product.urlimg }}" /></label>
                         <div class="card-body">
                             <h5><b> {{ product.name }} </b> </h5>
                             <div class="d-flex flex-row my-2">
                                 <div class="text-muted">R$ {{ product.price }} /pick
-                                    <select id="qty_0" class="weight" name="{{ product.quantity }}">
+                                    {{product.value}}
+                                    <select class="weight" name="qty_{{ product.name }}" [(ngModel)]="product.quantity" (change)="updateCost()">
                                         <option value="1" selected="selected">
                                             Normal
                                         </option>
@@ -47,6 +55,10 @@
                                             Triple
                                         </option>
                                     </select>
+                                    {{product.quantity}}
+                                    <!-- <select  [id]="product.id" name="{{ product.name }}" [ngModel]="selectedValue" (ngModelChange)="onSelectedChange($event)">
+                                        <option *ngFor="let option of options">{{ option }}</option>
+                                      </select> -->
                                 </div>
                             </div>
                         </div>
@@ -55,16 +67,17 @@
             </div>
         </div>
 
-        <h3 id="Protein" class="productTopping"> Selecione a Proteína </h3>
+    </div>
 
-        <!-- Force next columns to break to new line -->
-        <div class="w-100 d-none d-md-block"></div>
+    <h3 id="Protein" class="productTopping"> Selecione a Proteína </h3>
+
+    <div class="row">
 
         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1" *ngFor="let product of data.product">
 
             <div *ngIf="product.protein == true">
                 <div class="card">
-                    <input type="checkbox" id="{{ product.id }}" name="{{ product.name }}">
+                    <input type="checkbox" id="{{ product.id }}" name="{{ product.name }}" >
                     <label for="{{ product.id }}"><img class="card-img-top" src="{{ product.urlimg }}" /></label>
                     <div class="card-body">
                         <h5><b> {{ product.name }} </b> </h5>
@@ -86,10 +99,13 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <h3 id="French-fries" class="productTopping"> Escolha a sua batata </h3>
+    </div>
+
+    <h3 id="French-fries" class="productTopping"> Escolha a sua batata </h3>
+
+    <div class="row">
 
         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1" *ngFor="let product of data.product">
 
@@ -119,60 +135,34 @@
             </div>
         </div>
 
-            <h3 id="Drink" class="productTopping"> Seleccione sua Bebida </h3>
+    </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1" *ngFor="let product of data.product">
+    <h3 id="Drink" class="productTopping"> Seleccione sua Bebida </h3>
 
-                <div *ngIf="product.drink == true">
-                    <div class="card">
-                        <input type="checkbox" id="{{ product.id }}" name="{{ product.name }}">
-                        <label for="{{ product.id }}"><img class="card-img-top" src="{{ product.urlimg }}" /></label>
-                        <div class="card-body">
-                            <h5><b> {{ product.name }} </b> </h5>
-                            <div class="d-flex flex-row my-2">
-                                <div class="text-muted">R$ {{ product.price }} /pick
-                                    <select id="qty_0" class="weight" name="{{ product.quantity }}">
-                                        <option value="1" selected="selected">
-                                            Normal
-                                        </option>
-                                        <option value="2">
-                                            Doble
-                                        </option>
-                                        <option value="3">
-                                            Triple
-                                        </option>
-                                    </select>
-                                </div>
+    <div class="row">
+
+        <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1" *ngFor="let product of data.product">
+
+            <div *ngIf="product.drink == true">
+                <div class="card">
+                    <input type="checkbox" id="{{ product.id }}" name="{{ product.name }}">
+                    <label for="{{ product.id }}"><img class="card-img-top" src="{{ product.urlimg }}" /></label>
+                    <div class="card-body">
+                        <h5><b> {{ product.name }} </b> </h5>
+                        <div class="d-flex flex-row my-2">
+                            <div class="text-muted">R$ {{ product.price }} /pick
+                                <select id="qty_0" class="weight" name="{{ product.quantity }}">
+                                    <option value="1" selected="selected">
+                                        Normal
+                                    </option>
+                                    <option value="2">
+                                        Doble
+                                    </option>
+                                    <option value="3">
+                                        Triple
+                                    </option>
+                                </select>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-    <h3 id="Sauce" class="productTopping"> Seleccione o Molho </h3>
-
-    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1" *ngFor="let product of data.product">
-
-        <div *ngIf="product.sauce == true">
-            <div class="card">
-                <input type="checkbox" id="{{ product.id }}" name="{{ product.name }}">
-                <label for="{{ product.id }}"><img class="card-img-top" src="{{ product.urlimg }}" /></label>
-                <div class="card-body">
-                    <h5><b> {{ product.name }} </b> </h5>
-                    <div class="d-flex flex-row my-2">
-                        <div class="text-muted">R$ {{ product.price }} /pick
-                            <select id="qty_0" class="weight" name="{{ product.quantity }}">
-                                <option value="1" selected="selected">
-                                    Normal
-                                </option>
-                                <option value="2">
-                                    Doble
-                                </option>
-                                <option value="3">
-                                    Triple
-                                </option>
-                            </select>
                         </div>
                     </div>
                 </div>
@@ -180,15 +170,74 @@
         </div>
     </div>
 
-    
+    <h3 id="Sauce" class="productTopping"> Seleccione o Molho </h3>
+
+    <div class="row">
+
+        <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1" *ngFor="let product of data.product">
+
+            <div *ngIf="product.sauce == true">
+                <div class="card">
+                    <input type="checkbox" id="{{ product.id }}" name="{{ product.name }}">
+                    <label for="{{ product.id }}"><img class="card-img-top" src="{{ product.urlimg }}" /></label>
+                    <div class="card-body">
+                        <h5><b> {{ product.name }} </b> </h5>
+                        <div class="d-flex flex-row my-2">
+                            <div class="text-muted">R$ {{ product.price }} /pick
+                                <select id="qty_0" class="weight" name="{{ product.quantity }}">
+                                    <option value="1" selected="selected">
+                                        Normal
+                                    </option>
+                                    <option value="2">
+                                        Doble
+                                    </option>
+                                    <option value="3">
+                                        Triple
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-   
-
-
-
-
     <input type="text" id="total" name="total" value="$ 0" readonly="readonly">
+
+
+    <p>TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</p>
+
+    <!-- <section>
+        <div class="spacer">
+          <div class="container">
+            <div class="row mt-5">
+              <div class="col-lg-9">
+                <div class="row shop-listing">
+                  <div class="col-lg-4" *ngFor="let product of data.product">
+                    <div class="card shop-hover border-0">
+                      <img [src]="'http://localhost:5000/' + product.image" alt="wrapkit" class="img-fluid" />
+                      <div class="card-img-overlay align-items-center">
+                        <button class="btn btn-md btn-info" (click)="_addItemToCart(product._id, 1)">Add to Cart</button>
+                      </div>
+                    </div>
+                    <div class="card border-0">
+                      <h6>
+                        <a href="#" class="link">{{ product.name }}</a>
+                      </h6>
+                      <h6 class="subtitle">by Wisdom</h6>
+                      <h5 class="font-medium m-b-30">
+                        ${{product.price}}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
 
     <div class="">
         <button type="submit" class="btn btn-default btn-lg">Enviar</button>
