@@ -8,8 +8,9 @@ import { ProductsComponent } from './components/products/products.component';
 import { InterfaceComponent } from './components/interface/interface.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -19,13 +20,16 @@ import { FooterComponent } from './components/footer/footer.component';
     ProductsComponent,
     InterfaceComponent,
     CartComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

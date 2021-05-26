@@ -4,6 +4,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InterfaceComponent } from './components/interface/interface.component';
 import { ProductsComponent } from './components/products/products.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent},
   { path: 'carrito', component: CartComponent},
   { path: 'footer', component: FooterComponent},
+  { path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({
