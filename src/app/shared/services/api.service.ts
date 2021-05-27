@@ -16,6 +16,11 @@ export class ApiService {
     return this.http.get(environment.url.products);
   }
 
+  postPedido(data) {
+    console.log('espera de backend', data);
+    return this.http.post(environment.url.pedido, data);
+  }
+
   // postProducts(id, data) {
   //   const headers = new Headers();
   //   // headers.append('Content-Type', 'application/json');

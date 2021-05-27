@@ -8,6 +8,7 @@ export const environment = {
   production: false,
   url: {
     products: pathServer + 'products/',
+    pedido: pathServer + 'pedido/',
   }
 };
 

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { ProductsComponent } from '../products/products.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -37,11 +38,40 @@ export class ShoppingcartComponent implements OnInit {
   ketchup: any;
   maionese: any;
   total: any;
+  pedido: any = {
+    tomate: {},
+    cebola: {},
+    alface: {},
+    cheedar: {},
+    milho: {},
+    batata_palha: {},
+    pepino_japones: {},
+    carne: {},
+    frango: {},
+    calabresa: {},
+    presunto: {},
+    bacon: {},
+    ovo: {},
+    batatas_fritas: {},
+    coca_cola_2l: {},
+    coca_cola_350ml: {},
+    fanta_guarana_2l: {},
+    fanta_laranja_2l: {},
+    fanta_uva_2l: {},
+    sprite: {},
+    coca_cola_600ml: {},
+    mostarda: {},
+    ketchup: {},
+    maionese: {},
+  };
+  data: any;
+  successfully: boolean;
 
 
   constructor(
-    private fb: FormBuilder,
-    private dialogRef: MatDialogRef<ProductsComponent>,
+              private fb: FormBuilder,
+              private dialogRef: MatDialogRef<ProductsComponent>,
+              public productService: ApiService,
     @Inject(MAT_DIALOG_DATA) data) {
 
     this.tomate = data.order.tomate;
@@ -102,5 +132,45 @@ export class ShoppingcartComponent implements OnInit {
       total: [this.total, []],
     });
   }
+
+  onSubmit() {
+
+    this.pedido.tomate = this.shoppingCart.value.tomate.quantity;
+    this.pedido.cebola = this.shoppingCart.value.cebola.quantity;
+    this.pedido.alface = this.shoppingCart.value.alface.quantity;
+    this.pedido.cheedar = this.shoppingCart.value.cheedar.quantity;
+    this.pedido.milho = this.shoppingCart.value.milho.quantity;
+    this.pedido.batata_palha = this.shoppingCart.value.batata_palha.quantity;
+    this.pedido.pepino_japones = this.shoppingCart.value.pepino_japones.quantity;
+    this.pedido.carne = this.shoppingCart.value.carne.quantity;
+    this.pedido.frango = this.shoppingCart.value.frango.quantity;
+    this.pedido.calabresa = this.shoppingCart.value.calabresa.quantity;
+    this.pedido.presunto = this.shoppingCart.value.presunto.quantity;
+    this.pedido.bacon = this.shoppingCart.value.bacon.quantity;
+    this.pedido.ovo = this.shoppingCart.value.ovo.quantity;
+    this.pedido.batatas_fritas = this.shoppingCart.value.batatas_fritas.quantity;
+    this.pedido.coca_cola_2l = this.shoppingCart.value.coca_cola_2l.quantity;
+    this.pedido.coca_cola_350ml = this.shoppingCart.value.coca_cola_350ml.quantity;
+    this.pedido.fanta_guarana_2l = this.shoppingCart.value.fanta_guarana_2l.quantity;
+    this.pedido.fanta_laranja_2l = this.shoppingCart.value.fanta_laranja_2l.quantity;
+    this.pedido.fanta_uva_2l  = this.shoppingCart.value.fanta_uva_2l.quantity;
+    this.pedido.sprite = this.shoppingCart.value.sprite.quantity;
+    this.pedido.coca_cola_600ml = this.shoppingCart.value.coca_cola_600ml.quantity;
+    this.pedido.mostarda = this.shoppingCart.value.mostarda.quantity;
+    this.pedido.ketchup = this.shoppingCart.value.ketchup.quantity;
+    this.pedido.maionese = this.shoppingCart.value.maionese.quantity;
+    console.log (this.pedido);
+    this.productService.postPedido(this.pedido)
+    .subscribe(   
+      (data)=>{
+        this.data = data;
+        this.successfully = true;
+        console.log(this.successfully)
+      },
+      (error)=>{ 
+        console.log(error);
+      }); 
+  }
+
 
 }
