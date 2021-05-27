@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+
 import { ApiService } from 'src/app/shared/services/api.service';
+import { ShoppingcartComponent } from '../shoppingcart/shoppingcart.component';
 
 
 @Component({
@@ -258,7 +261,8 @@ export class ProductsComponent implements OnInit {
 
 
 
-  constructor(private productsService: ApiService) { }
+  constructor(private productsService: ApiService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -526,6 +530,18 @@ export class ProductsComponent implements OnInit {
     this.order2 = dataObj.form.value;
     console.log(this.order);
     console.log(this.order2);
+    console.log(this.order.cebola);
+    
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = this.order;
+
+    this.dialog.open(ShoppingcartComponent, dialogConfig);  
+
+
   }
 
   // Function for one ingredient
