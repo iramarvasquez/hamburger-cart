@@ -47,6 +47,16 @@ label {
   padding: 8px
 }
 
+.h1 {
+  color: orange;
+  text-align: center;
+}
+
+button {
+  align-items:center !important;
+  justify-content:center !important;
+}
+
 @media(min-width:1200px) {
 
   .card {

@@ -1,10 +1,3 @@
-<p>Mi carrito Humilde</p>
-
-
-
-
-
-
 <!-- <div class="container">
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal">
       View Cart
@@ -18,7 +11,7 @@
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    Your Shopping Cart
+                    Seu Carrinho
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -30,10 +23,8 @@
                     <tr>
                         <th scope="col"></th>               
                         <th scope="col">Product</th>
-                        <th scope="col">Qty</th>
                         <th scope="col">Price</th>
-                        
-                        <th scope="col">Total</th>
+
                         <th scope="col">Actions</th>
                     </tr>
                     </thead>
@@ -70,7 +61,7 @@
                                 {{ shoppingCart.value.maionese.name }} <br>             
                     
                     </td>
-                        <td> R$ {{ shoppingCart.value.total }}</td>
+                        
                         <td> 
                             {{ shoppingCart.value.tomate.quantity }} <br>
                             {{ shoppingCart.value.cebola.quantity }} <br>                     
@@ -98,8 +89,7 @@
                             {{ shoppingCart.value.maionese.quantity }} <br>
                         </td>
                         <!-- <td class="qty"><input type="text" class="form-control" id="input1" value="2"></td> -->
-                        <td>178$</td>
-                        <td>
+                                             <td>
                         <a href="#" class="btn btn-danger btn-sm">
                             <i class="fa fa-times"></i>
                         </a>
@@ -108,7 +98,7 @@
                     </tbody>
                 </table> 
                 <div class="d-flex justify-content-end">
-                    <h5>Total: <span class="price text-success">660</span></h5>
+                    <h5>Total: <span class="price text-success">$R {{ shoppingCart.value.total }}</span></h5>
                 </div>
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-between">
