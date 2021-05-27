@@ -30,6 +30,7 @@ article {
 }
 .content h1{
     font-size: 4em;
+    font-size: calc(1em + 5vw) 
 }
 a {
     margin-top: 10%;

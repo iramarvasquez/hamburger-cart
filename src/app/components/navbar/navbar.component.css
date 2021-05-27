@@ -10,15 +10,15 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-@media only screen and (min-width: 800px) {
+/* @media only screen and (min-width: 800px) {
     .navbar-toggler {
         display: none !important;
-    }
-.nav-link:hover{
+    } */
+/* .nav-link:hover{
     
     font-size: 17px;
-}
+} */
 
-}
+/* } */
 
 
