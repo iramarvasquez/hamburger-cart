@@ -105,128 +105,153 @@ export class ProductsComponent implements OnInit {
     tomate: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     cebola: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
 
     alface: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     cheedar: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     milho: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     batata_palha: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     pepino_japones: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     carne: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     frango: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     calabresa: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     presunto: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     bacon: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     ovo: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     batatas_fritas: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     coca_cola_2l: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     coca_cola_350ml: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     fanta_guarana_2l: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     fanta_laranja_2l: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     fanta_uva_2l: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     sprite: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     coca_cola_600ml: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     mostarda: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     ketchup: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     maionese: {
       selected: false,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     },
     pao: {
       selected: true,
       price: '',
-      quantity: '1'
+      quantity: null,
+      name: ''
     }
   };
 
@@ -258,8 +283,11 @@ export class ProductsComponent implements OnInit {
   total: any;
   displayTotal: any;
   order2: any;
+  cart: any = {  
 
+  }; 
 
+  
 
   constructor(private productsService: ApiService,
               public dialog: MatDialog) { }
@@ -279,6 +307,7 @@ export class ProductsComponent implements OnInit {
         this.url.tomate = this.data.product[i].urlimg;
         this.name.tomate = this.data.product[i].name;
         this.price.tomate = this.data.product[i].price;
+       
         console.log(this.url.tomate)
         console.log(this.name.tomate)
         console.log(this.price.tomate);
@@ -288,7 +317,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '2') {
         this.url.cebola = this.data.product[i].urlimg;
         this.name.cebola = this.data.product[i].name;
-        this.price.cebola = this.data.product[i].price;
+        this.price.cebola = this.data.product[i].price;   
         console.log(this.url.cebola)
         console.log(this.name.cebola)
         console.log(this.price.cebola);
@@ -297,7 +326,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '3') {
         this.url.alface = this.data.product[i].urlimg;
         this.name.alface = this.data.product[i].name;
-        this.price.alface = this.data.product[i].price;
+        this.price.alface = this.data.product[i].price;      
         console.log(this.url.alface)
         console.log(this.name.alface)
         console.log(this.price.alface);
@@ -306,7 +335,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '4') {
         this.url.cheedar = this.data.product[i].urlimg;
         this.name.cheedar = this.data.product[i].name;
-        this.price.cheedar = this.data.product[i].price;
+        this.price.cheedar = this.data.product[i].price;     
         console.log(this.url.cheedar)
         console.log(this.name.cheedar)
         console.log(this.price.cheedar);
@@ -315,7 +344,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '5') {
         this.url.milho = this.data.product[i].urlimg;
         this.name.milho = this.data.product[i].name;
-        this.price.milho = this.data.product[i].price;
+        this.price.milho = this.data.product[i].price;        
         console.log(this.url.milho)
         console.log(this.name.milho)
         console.log(this.price.milho);
@@ -324,7 +353,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '6') {
         this.url.batata_palha = this.data.product[i].urlimg;
         this.name.batata_palha = this.data.product[i].name;
-        this.price.batata_palha = this.data.product[i].price;
+        this.price.batata_palha = this.data.product[i].price;       
         console.log(this.url.batata_palha)
         console.log(this.name.batata_palha)
         console.log(this.price.batata_palha);
@@ -333,7 +362,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '7') {
         this.url.pepino_japones = this.data.product[i].urlimg;
         this.name.pepino_japones = this.data.product[i].name;
-        this.price.pepino_japones = this.data.product[i].price;
+        this.price.pepino_japones = this.data.product[i].price;  
         console.log(this.url.pepino_japones)
         console.log(this.name.pepino_japones)
         console.log(this.price.pepino_japones);
@@ -351,7 +380,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '9') {
         this.url.frango = this.data.product[i].urlimg;
         this.name.frango = this.data.product[i].name;
-        this.price.frango = this.data.product[i].price;
+        this.price.frango = this.data.product[i].price;     
         console.log(this.url.frango)
         console.log(this.name.frango)
         console.log(this.price.frango);
@@ -360,7 +389,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '10') {
         this.url.calabresa = this.data.product[i].urlimg;
         this.name.calabresa = this.data.product[i].name;
-        this.price.calabresa = this.data.product[i].price;
+        this.price.calabresa = this.data.product[i].price;  
         console.log(this.url.calabresa)
         console.log(this.name.calabresa)
         console.log(this.price.calabresa);
@@ -378,7 +407,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '12') {
         this.url.bacon = this.data.product[i].urlimg;
         this.name.bacon = this.data.product[i].name;
-        this.price.bacon = this.data.product[i].price;
+        this.price.bacon = this.data.product[i].price; 
         console.log(this.url.bacon)
         console.log(this.name.bacon)
         console.log(this.price.bacon);
@@ -396,7 +425,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '14') {
         this.url.batatas_fritas = this.data.product[i].urlimg;
         this.name.batatas_fritas = this.data.product[i].name;
-        this.price.batatas_fritas = this.data.product[i].price;
+        this.price.batatas_fritas = this.data.product[i].price; 
         console.log(this.url.batatas_fritas)
         console.log(this.name.batatas_fritas)
         console.log(this.price.batatas_fritas);
@@ -405,7 +434,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '15') {
         this.url.coca_cola_2l = this.data.product[i].urlimg;
         this.name.coca_cola_2l = this.data.product[i].name;
-        this.price.coca_cola_2l = this.data.product[i].price;
+        this.price.coca_cola_2l = this.data.product[i].price;      
         console.log(this.url.coca_cola_2l)
         console.log(this.name.coca_cola_2l)
         console.log(this.price.coca_cola_2l);
@@ -423,7 +452,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '17') {
         this.url.fanta_guarana_2l = this.data.product[i].urlimg;
         this.name.fanta_guarana_2l = this.data.product[i].name;
-        this.price.fanta_guarana_2l = this.data.product[i].price;
+        this.price.fanta_guarana_2l = this.data.product[i].price;    
         console.log(this.url.fanta_guarana_2l)
         console.log(this.name.fanta_guarana_2l)
         console.log(this.price.fanta_guarana_2l);
@@ -441,7 +470,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '19') {
         this.url.fanta_uva_2l = this.data.product[i].urlimg;
         this.name.fanta_uva_2l = this.data.product[i].name;
-        this.price.fanta_uva_2l = this.data.product[i].price;
+        this.price.fanta_uva_2l = this.data.product[i].price;   
         console.log(this.url.fanta_uva_2l)
         console.log(this.name.fanta_uva_2l)
         console.log(this.price.fanta_uva_2l);
@@ -450,7 +479,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '20') {
         this.url.sprite = this.data.product[i].urlimg;
         this.name.sprite = this.data.product[i].name;
-        this.price.sprite = this.data.product[i].price;
+        this.price.sprite = this.data.product[i].price;  
         console.log(this.url.sprite)
         console.log(this.name.sprite)
         console.log(this.price.sprite);
@@ -468,7 +497,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '22') {
         this.url.mostarda = this.data.product[i].urlimg;
         this.name.mostarda = this.data.product[i].name;
-        this.price.mostarda = this.data.product[i].price;
+        this.price.mostarda = this.data.product[i].price;     
         console.log(this.url.mostarda)
         console.log(this.name.mostarda)
         console.log(this.price.mostarda);
@@ -477,7 +506,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '23') {
         this.url.ketchup = this.data.product[i].urlimg;
         this.name.ketchup = this.data.product[i].name;
-        this.price.ketchup = this.data.product[i].price;
+        this.price.ketchup = this.data.product[i].price;       
         console.log(this.url.ketchup)
         console.log(this.name.ketchup)
         console.log(this.price.ketchup);
@@ -486,7 +515,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '24') {
         this.url.maionese = this.data.product[i].urlimg;
         this.name.maionese = this.data.product[i].name;
-        this.price.maionese = this.data.product[i].price;
+        this.price.maionese = this.data.product[i].price;   
         console.log(this.url.maionese)
         console.log(this.name.maionese)
         console.log(this.price.maionese);
@@ -495,7 +524,7 @@ export class ProductsComponent implements OnInit {
       if (this.data.product[i].id == '25') {
         this.url.pao = this.data.product[i].urlimg;
         this.name.pao = this.data.product[i].name;
-        this.price.pao = this.data.product[i].price;
+        this.price.pao = this.data.product[i].price;     
         console.log(this.url.pao)
         console.log(this.name.pao)
         console.log(this.price.pao);
@@ -534,10 +563,14 @@ export class ProductsComponent implements OnInit {
     
     const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = true;
+    dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
 
-    dialogConfig.data = this.order;
+   
+    this.cart.order = this.order;
+    this.cart.total = this.displayTotal;
+
+    dialogConfig.data = this.cart;
 
     this.dialog.open(ShoppingcartComponent, dialogConfig);  
 
@@ -564,6 +597,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.tomate.selected) {
       this.order.tomate.price = this.tomate_price * this.order.tomate.quantity;
+      this.order.tomate.name = this.name.tomate;
       console.log('Tomate Total Price', this.order.tomate.price);
       var list = total.push(this.order.tomate.price);
     }
@@ -583,6 +617,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.cebola.selected) {
       this.order.cebola.price = this.cebola_price * this.order.cebola.quantity;
+      this.order.cebola.name = this.name.cebola;
       console.log('Cebola Total Price', this.order.cebola.price);
       var list = total.push(this.order.cebola.price);
     }
@@ -602,6 +637,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.alface.selected) {
       this.order.alface.price = this.alface_price * this.order.alface.quantity;
+      this.order.alface.name = this.name.alface;
       console.log('Alface Total Price', this.order.alface.price);
       var list = total.push(this.order.alface.price);
     }
@@ -621,6 +657,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.cheedar.selected) {
       this.order.cheedar.price = this.cheedar_price * this.order.cheedar.quantity;
+      this.order.cheedar.name = this.name.cheedar;
       console.log('Cheedar Total Price', this.order.cheedar.price);
       var list = total.push(this.order.cheedar.price);
     }
@@ -640,6 +677,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.milho.selected) {
       this.order.milho.price = this.milho_price * this.order.milho.quantity;
+      this.order.milho.name = this.name.milho;
       console.log('Milho Total Price', this.order.milho.price);
       var list = total.push(this.order.milho.price);
     }
@@ -659,6 +697,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.batata_palha.selected) {
       this.order.batata_palha.price = this.batata_palha_price * this.order.batata_palha.quantity;
+      this.order.batata_palha.name = this.name.batata_palha;
       console.log('Batata_Palha Total Price', this.order.batata_palha.price);
       var list = total.push(this.order.batata_palha.price);
     }
@@ -678,6 +717,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.pepino_japones.selected) {
       this.order.pepino_japones.price = this.pepino_japones_price * this.order.pepino_japones.quantity;
+      this.order.pepino_japones.name = this.name.pepino_japones;
       console.log('Pepino_Japonês Total Price', this.order.pepino_japones.price);
       var list = total.push(this.order.pepino_japones.price);
     }
@@ -697,6 +737,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.carne.selected) {
       this.order.carne.price = this.carne_price * this.order.carne.quantity;
+      this.order.carne.name = this.name.carne;
       console.log('Carne Total Price', this.order.carne.price);
       var list = total.push(this.order.carne.price);
     }
@@ -716,6 +757,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.frango.selected) {
       this.order.frango.price = this.frango_price * this.order.frango.quantity;
+      this.order.frango.name = this.name.frango;
       console.log('Frango Total Price', this.order.frango.price);
       var list = total.push(this.order.frango.price);
     }
@@ -735,6 +777,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.calabresa.selected) {
       this.order.calabresa.price = this.calabresa_price * this.order.calabresa.quantity;
+      this.order.calabresa.name = this.name.calabresa;
       console.log('Calabresa Total Price', this.order.calabresa.price);
       var list = total.push(this.order.calabresa.price);
     }
@@ -754,6 +797,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.presunto.selected) {
       this.order.presunto.price = this.presunto_price * this.order.presunto.quantity;
+      this.order.presunto.name = this.name.presunto;
       console.log('Presunto Total Price', this.order.presunto.price);
       var list = total.push(this.order.presunto.price);
     }
@@ -773,6 +817,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.bacon.selected) {
       this.order.bacon.price = this.bacon_price * this.order.bacon.quantity;
+      this.order.bacon.name = this.name.bacon;
       console.log('Bacon Total Price', this.order.bacon.price);
       var list = total.push(this.order.bacon.price);
     }
@@ -792,6 +837,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.ovo.selected) {
       this.order.ovo.price = this.ovo_price * this.order.ovo.quantity;
+      this.order.ovo.name = this.name.ovo;
       console.log('Ovo Total Price', this.order.ovo.price);
       var list = total.push(this.order.ovo.price);
     }
@@ -811,6 +857,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.batatas_fritas.selected) {
       this.order.batatas_fritas.price = this.batatas_fritas_price * this.order.batatas_fritas.quantity;
+      this.order.batatas_fritas.name = this.name.batatas_fritas;
       console.log('Batatas_Fritas Total Price', this.order.batatas_fritas.price);
       var list = total.push(this.order.batatas_fritas.price);
     }
@@ -830,6 +877,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.coca_cola_2l.selected) {
       this.order.coca_cola_2l.price = this.coca_cola_2l_price * this.order.coca_cola_2l.quantity;
+      this.order.coca_cola_2l.name = this.name.coca_cola_2l;
       console.log('Coca_Cola_2l Total Price', this.order.coca_cola_2l.price);
       var list = total.push(this.order.coca_cola_2l.price);
     }
@@ -849,6 +897,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.coca_cola_350ml.selected) {
       this.order.coca_cola_350ml.price = this.coca_cola_350ml_price * this.order.coca_cola_350ml.quantity;
+      this.order.coca_cola_350ml.name = this.name.coca_cola_350ml;
       console.log('Coca_Cola_350ml Total Price', this.order.coca_cola_350ml.price);
       var list = total.push(this.order.coca_cola_350ml.price);
     }
@@ -868,6 +917,8 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.fanta_guarana_2l.selected) {
       this.order.fanta_guarana_2l.price = this.fanta_guarana_2l_price * this.order.fanta_guarana_2l.quantity;
+      this.order.fanta_guarana_2l.name = this.name.fanta_guarana_2l;
+
       console.log('Fanta Guaraná 2L Total Price', this.order.fanta_guarana_2l.price);
       var list = total.push(this.order.fanta_guarana_2l.price);
     }
@@ -887,6 +938,8 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.fanta_laranja_2l.selected) {
       this.order.fanta_laranja_2l.price = this.fanta_laranja_2l_price * this.order.fanta_laranja_2l.quantity;
+      this.order.fanta_laranja_2l.name = this.name.fanta_laranja_2l;
+
       console.log('Fanta Laranja 2L Total Price', this.order.fanta_laranja_2l.price);
       var list = total.push(this.order.fanta_laranja_2l.price);
     }
@@ -906,6 +959,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.fanta_uva_2l.selected) {
       this.order.fanta_uva_2l.price = this.fanta_uva_2l_price * this.order.fanta_uva_2l.quantity;
+      this.order.fanta_uva_2l.name = this.name.fanta_uva_2l;
       console.log('Fanta Uva 2L Total Price', this.order.fanta_uva_2l.price);
       var list = total.push(this.order.fanta_uva_2l.price);
     }
@@ -925,6 +979,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.sprite.selected) {
       this.order.sprite.price = this.sprite_price * this.order.sprite.quantity;
+      this.order.sprite.name = this.name.sprite;
       console.log('Sprite Total Price', this.order.sprite.price);
       var list = total.push(this.order.sprite.price);
     }
@@ -944,6 +999,8 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.coca_cola_600ml.selected) {
       this.order.coca_cola_600ml.price = this.coca_cola_600ml_price * this.order.coca_cola_600ml.quantity;
+      this.order.coca_cola_600ml.name = this.name.coca_cola_600ml;
+
       console.log('Coca_Cola_600ml Total Price', this.order.coca_cola_600ml.price);
       var list = total.push(this.order.coca_cola_600ml.price);
     }
@@ -963,6 +1020,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.mostarda.selected) {
       this.order.mostarda.price = this.mostarda_price * this.order.mostarda.quantity;
+      this.order.mostarda.name = this.name.mostarda;
       console.log('Mostarda Total Price', this.order.mostarda.price);
       var list = total.push(this.order.mostarda.price);
     }
@@ -982,6 +1040,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.ketchup.selected) {
       this.order.ketchup.price = this.ketchup_price * this.order.ketchup.quantity;
+      this.order.ketchup.name = this.name.ketchup;
       console.log('Ketchup Total Price', this.order.ketchup.price);
       var list = total.push(this.order.ketchup.price);
     }
@@ -1001,6 +1060,7 @@ export class ProductsComponent implements OnInit {
 
     if (this.order.maionese.selected) {
       this.order.maionese.price = this.maionese_price * this.order.maionese.quantity;
+      this.order.maionese.name = this.name.maionese;
       console.log('Ketchup Total Price', this.order.maionese.price);
       var list = total.push(this.order.maionese.price);
     }

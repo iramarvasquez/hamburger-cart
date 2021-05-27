@@ -1,5 +1,119 @@
 <p>Mi carrito Humilde</p>
 
-Tomate selected: {{ shoppingCart.value.tomate.selected }}
-Tomate price: {{ shoppingCart.value.tomate.price }}
-Tomate quantity: {{ shoppingCart.value.tomate.quantity }}
+
+
+
+
+
+<!-- <div class="container">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal">
+      View Cart
+    </button>  
+  </div> -->
+  
+  <!-- <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+    <div>
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header border-bottom-0">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Your Shopping Cart
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-image">
+            <thead>
+              <tr>
+                <th scope="col"></th>               
+                <th scope="col">Product</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Price</th>
+                
+                <th scope="col">Total</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="w-25">
+                  <img src="https://i.imgur.com/dAZi2t6.png" class="img-fluid img-thumbnail" alt="Sheep">
+                </td>
+
+                <td>                                  
+                        {{ shoppingCart.value.tomate.name }} <br> 
+                        {{ shoppingCart.value.cebola.name }} <br>
+                        {{ shoppingCart.value.alface.name }} <br>
+                        {{ shoppingCart.value.cheedar.name }} <br>
+                        {{ shoppingCart.value.milho.name }} <br>
+                        {{ shoppingCart.value.batata_palha.name }} <br>
+                        {{ shoppingCart.value.pepino_japones.name }} <br>
+                        {{ shoppingCart.value.carne.name }} <br>
+                        {{ shoppingCart.value.frango.name }} <br>
+                        {{ shoppingCart.value.calabresa.name }} <br>
+                        {{ shoppingCart.value.presunto.name }} <br>
+                        {{ shoppingCart.value.bacon.name }} <br>
+                        {{ shoppingCart.value.ovo.name }} <br>
+                        {{ shoppingCart.value.batatas_fritas.name }} <br>
+                        {{ shoppingCart.value.coca_cola_2l.name }} <br>
+                        {{ shoppingCart.value.coca_cola_350ml.name }} <br>
+                        {{ shoppingCart.value.fanta_guarana_2l.name }} <br>
+                        {{ shoppingCart.value.fanta_laranja_2l.name }} <br>
+                        {{ shoppingCart.value.fanta_uva_2l.name }} <br>
+                        {{ shoppingCart.value.sprite.name }} <br>
+                        {{ shoppingCart.value.coca_cola_600ml.name }} <br>
+                        {{ shoppingCart.value.mostarda.name }} <br>
+                        {{ shoppingCart.value.ketchup.name }} <br>
+                        {{ shoppingCart.value.maionese.name }} <br>             
+               
+            </td>
+                <td> R$ {{ shoppingCart.value.total }}</td>
+                <td> 
+                    {{ shoppingCart.value.tomate.quantity }} <br>
+                    {{ shoppingCart.value.cebola.quantity }} <br>                     
+                    {{ shoppingCart.value.alface.quantity }} <br> 
+                    {{ shoppingCart.value.cheedar.quantity }} <br> 
+                    {{ shoppingCart.value.milho.quantity }} <br> 
+                    {{ shoppingCart.value.batata_palha.quantity }} <br>
+                    {{ shoppingCart.value.pepino_japones.quantity }} <br>
+                    {{ shoppingCart.value.carne.quantity }} <br>
+                    {{ shoppingCart.value.frango.quantity }} <br>
+                    {{ shoppingCart.value.calabresa.quantity }} <br>
+                    {{ shoppingCart.value.presunto.quantity }} <br>
+                    {{ shoppingCart.value.bacon.quantity }} <br>
+                    {{ shoppingCart.value.ovo.quantity }} <br>
+                    {{ shoppingCart.value.batatas_fritas.quantity }} <br>
+                    {{ shoppingCart.value.coca_cola_2l.quantity }} <br>
+                    {{ shoppingCart.value.coca_cola_350ml.quantity }} <br>
+                    {{ shoppingCart.value.fanta_guarana_2l.quantity }} <br>
+                    {{ shoppingCart.value.fanta_laranja_2l.quantity }} <br>
+                    {{ shoppingCart.value.fanta_uva_2l.quantity }} <br>
+                    {{ shoppingCart.value.sprite.quantity }} <br>
+                    {{ shoppingCart.value.coca_cola_600ml.quantity }} <br>
+                    {{ shoppingCart.value.mostarda.quantity }} <br>
+                    {{ shoppingCart.value.ketchup.quantity }} <br>
+                    {{ shoppingCart.value.maionese.quantity }} <br>
+                </td>
+                <!-- <td class="qty"><input type="text" class="form-control" id="input1" value="2"></td> -->
+                <td>178$</td>
+                <td>
+                  <a href="#" class="btn btn-danger btn-sm">
+                    <i class="fa fa-times"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table> 
+          <div class="d-flex justify-content-end">
+            <h5>Total: <span class="price text-success">660</span></h5>
+          </div>
+        </div>
+        <div class="modal-footer border-top-0 d-flex justify-content-between">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
